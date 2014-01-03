@@ -1,9 +1,16 @@
-[data-cellnode-jidlo] {
- background: url("../../images/hex_red.svg");                     
+[data-cellnode-smrad]:before {
+ display: block;
+ position: relative;
+ width: 0;
+ height: 0;
+ padding: 0;
+ margin: 0;
+ left: 72px;
+ top: 72px;
+ font-size: 50px;
+ content: attr(data-cellnode-smrad);
 }
-[data-cellnode-smrad="2"],
-[data-cellnode-smrad="4"],
-[data-cellnode-smrad="6"],
-[data-cellnode-smrad="8"] {
- background: url("../../images/hex_black.svg");                     
+[data-cellnode-smrad] {
+ position: relative;
+ bottom: 153.2050808px;
 }

@@ -13,7 +13,7 @@ window.sn   = 0; //Number of steps
 if(isNaN(angle)){angle=0;}
 if(isNaN(time)){time=1000;}
 if(isNaN(steps)){steps=-1;}
-if(name ==undefined){name="m1";}
+if(name==undefined){name="m1";}
 
 var style = doc.mkNode("link");
 style.setAttr("rel","stylesheet");

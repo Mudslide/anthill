@@ -14,7 +14,7 @@
   var blu = new CellNode("blue");
   var krl = new SingleCellNode("karel");
  
-  krl.xy.place(x,y);              
+  krl.xy.place(x,y);
 
   win.karel.krok = function(){
    if(tmp=krl.cell.dir(smer)){
@@ -40,7 +40,7 @@
       alert("Není­ kam položit!");
     }else{
       blu.xy.place(xy[0],xy[1]);
-    }        
+    }
   }
   
   win.karel.zvedni = function(){
@@ -50,15 +50,15 @@
     }else{
       alert("Není­ co zvednout!");
     }
-  } 
+  }
   
   smer%=6;
   
   cells = doc.getElementsByTagName("cell");
   i = cells.length;
-  element = cells
-  while(i-->0)  {
-    cells[i].on("click",function(e){                     
+  element = cells;
+  while(i-->0){
+    cells[i].on("click",function(e){
       cell = e.target.mapNode;
       if(red.cells.indexOf(World.xy(cell.xy()[0],cell.xy()[1]))+1){
         red.remove(cell.xy()[0],cell.xy()[1]);

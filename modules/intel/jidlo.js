@@ -22,12 +22,14 @@ while(i++<s){
  d=6;
  while(d-->0){
   dir[d] = dir[d].dir(d);
-  (new SingleCellNode("smrad",s-i+1)).xy.place(dir[d].xy()[0],dir[d].xy()[1]);
-  l=i;
-  tmp=dir[d];
-  while(--l>0){
-   tmp = tmp.dir(d+2);
-   (new SingleCellNode("smrad",s-i+1)).xy.place(tmp.xy()[0],tmp.xy()[1]);
+  if(dir[d]){
+   (new SingleCellNode("smrad",s-i+1)).xy.place(dir[d].xy()[0],dir[d].xy()[1]);
+   l=i;
+   tmp=dir[d];
+   while(--l>0){
+    tmp = tmp.dir(d+2);
+    (new SingleCellNode("smrad",s-i+1)).xy.place(tmp.xy()[0],tmp.xy()[1]);
+   }
   }
  }
 }
