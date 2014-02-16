@@ -5,6 +5,9 @@ window.win = window;
 window.doc = win.document;
 window.on  = win.addEventListener;
 
+//Debug functions
+win.__debug = false;
+
 
 //Shortand for doc.createElement and doc.createElementNS
 doc.mkNode = function(n1,n2,n3){
@@ -99,6 +102,38 @@ Element.prototype.spliceClass = function(){
  var result = attr.splice.apply(attr,arguments);
  this.setClass(attr);
  return result;
+}
+
+//Arrays
+Array.prototype.equals = function(){
+ var i = -1, j = -1;
+ while(++j<arguments.length){
+  if(!Array.isArray(arguments[j])){
+   if(win.__debug){console.log("NaA");}
+   return false;
+  }
+  if(this.length!=arguments[j].length){
+   if(win.__debug){console.log("DiffLen");}
+   return false;
+  }
+ }
+ while(++i<this.length){
+  j = -1;
+  while(++j<arguments.length){
+   if(Array.isArray(this[i])){
+    if(!this[i].equals(arguments[j][i])){
+     if(win.__debug){console.log("ChildArrayErr");}
+     return false;
+    }
+   }else{
+    if(this[i]!=arguments[j][i]){
+     if(win.__debug){console.log("ComparationErr");}
+     return false;
+    }
+   }
+  }
+ }
+ return true;
 }
 
 })();

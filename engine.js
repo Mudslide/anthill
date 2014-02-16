@@ -178,6 +178,9 @@
    n = World.xy(x,y);
    if(!n){return false;}
    if(self.cell != n){
+    if(self.cell){
+     self.cell.domNode.rmAttr("data-cellnode-"+self.nodeName);
+    }
     self.cell = n;
     if(value||self.defaultValue){
      if(value){
@@ -193,6 +196,16 @@
    self.defaultValue = value;
    if(self.cell){
     self.cell.domNode.setAttr("data-cellnode-"+self.nodeName,self.defaultValue);
+   }
+  };
+  this.dir = function(a){
+   var tmp = this.cell.dir(a);
+   if(tmp){
+    tmp=tmp.xy();
+    this.xy.place(tmp[0],tmp[1]);
+    return true;
+   }else{
+    return false;
    }
   };
   this.rename = function(name){
